@@ -1,0 +1,11 @@
+
+[github]
+# GitHub API credentials
+token = ""
+# Organizations to fetch repositories from
+orgs = ["apache"]
+
+[output]
+# DuckDB database path
+db_path = "data/output.duckdb"
+mmode = "merge"
