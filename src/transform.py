@@ -83,6 +83,3 @@ def transform_data(raw_data: List[Dict]) -> pl.DataFrame:
 #         raw_data = json.load(f)
 
 #     df_clean = transform_data(raw_data)
-
-#     print(df_clean.head())
-#     print(df_clean.schema)

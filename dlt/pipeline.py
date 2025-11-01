@@ -39,7 +39,7 @@ def github_repos_resource():
 
 # Define DLT pipeline
 pipeline = dlt.pipeline(
-    pipeline_name="github_etl",
+    pipeline_name=f"github_etl_{datetime.now(timezone.utc).strftime('%Y_%m_%d')}",
     destination=dlt.destinations.duckdb(db_path),
     dataset_name="github_data",
     dev_mode=False
