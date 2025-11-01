@@ -5,5 +5,4 @@ tomli
 python-dotenv
 dlt[duckdb]
 pyarrow
-numpy
-pandas
+pytest

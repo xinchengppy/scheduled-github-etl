@@ -34,9 +34,11 @@ def transform_data(raw_data: List[Dict]) -> pl.DataFrame:
         df = df.with_columns([
             pl.col(col).str.to_datetime(format="%Y-%m-%dT%H:%M:%SZ", strict=False)
             .dt.replace_time_zone("UTC")
-            .alias(col),
-            pl.col(col).is_null().alias(f"{col}_is_invalid")
+            .alias(col)
         ])
+        df = df.with_columns(
+            pl.col(col).is_null().alias(f"{col}_is_invalid")
+        )
         invalid_count = df.filter(pl.col(f"{col}_is_invalid")).shape[0]
         if invalid_count > 0:
             logger.warning(f"Found {invalid_count} invalid dates in {col}")
